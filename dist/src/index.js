@@ -16,9 +16,10 @@ const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
 const expenseRoutes_1 = __importDefault(require("./routes/expenseRoutes"));
 // Route Imports
 const app = (0, express_1.default)();
+//cors configuration
 const allowedOrigins = [
     'http://localhost:3000',
-    ''
+    'https://bistock-1jdb.vercel.app/'
 ];
 app.use((0, cors_1.default)({
     origin: (origin, callback) => {
@@ -32,11 +33,11 @@ app.use((0, cors_1.default)({
             callback(new Error('Not allowed by CORS'));
         }
     },
-    credentials: true,
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type'], // Specify allowed headers
 }));
-// Other app configurations and routes...
+// app configurations and routes...
 exports.default = app;
 // Configurations
 dotenv_1.default.config();
