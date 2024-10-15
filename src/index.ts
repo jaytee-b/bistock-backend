@@ -25,6 +25,10 @@ const allowedOrigins: string[] = [
   'https://bistock-1jdb.vercel.app/'
 ];
 
+
+
+
+
 app.use(cors({
   origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
     // Allow requests with no origin (like mobile apps or curl requests)
@@ -37,8 +41,12 @@ app.use(cors({
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type'], // Removed 'Authorization'
 }));
+
+// Your other middleware and routes go here
+
+
 
 // Other app configurations and routes...
 
